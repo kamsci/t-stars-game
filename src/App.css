@@ -44,6 +44,11 @@
   border: 1px solid gray;
   border-radius: 5px;
 }
+.selected {
+  background-color: #eee;
+  color: #ddd;
+  cursor:  not-allowed;
+}
 
 /*Numbers & Answers*/
 span {

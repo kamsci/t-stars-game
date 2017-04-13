@@ -2,18 +2,26 @@ import React from 'react';
 
 //////////////////////////////////////////////
 
-const Numbers = (props) => {
+const Numbers = (props) => {  
+  // Create CSS class for when the number is selected
+  const addNumberClass = (number) => {
+    if(props.selectedNumbers.indexOf(number) >= 0) {
+      let numberClasses = 'selected disabled';
+      return numberClasses;
+    }
+  }
 
-    return (
-      <div className="card text-center">
-        <div>
-          {Numbers.List.map((number, i) => 
-            <span key={i}
-                  onClick={() => props.onClickNumber(number)}>{number}</span>
-          )}
-        </div>
+  return (
+    <div className="card text-center">
+      <div>
+        {Numbers.List.map((number, i) => 
+          <span key={i}
+                onClick={() => props.onClickNumber(number)}
+                className={addNumberClass(number)}>{number}</span>
+        )}
       </div>
-    );
+    </div>
+  );
 }
 
 /* Store data on object to be used by all instances of that object. 

@@ -8,7 +8,7 @@ import Numbers from './Numbers';
 
 class Game extends Component {
   state = {
-    numberOfStars: 1 + Math.floor(Math.random()*9),
+    numberOfStars: 1 + Math.floor(Math.random() * 9),
     selectedNumbers: []
   };
 
@@ -35,7 +35,8 @@ class Game extends Component {
           <Answer selectedNumbers={this.state.selectedNumbers}
                   onClickNumber={this.unselectNumber} />
         </div>
-        <Numbers onClickNumber={this.selectNumber} />
+        <Numbers selectedNumbers={this.state.selectedNumbers}
+                 onClickNumber={this.selectNumber} />
       </div>
     );
   }
