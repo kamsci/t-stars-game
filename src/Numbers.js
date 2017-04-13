@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 //////////////////////////////////////////////
 
-class Numbers extends Component {
-  render() {
+const Numbers = (props) => {
+  const arrayOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
     return (
       <div className="card text-center">
         <div>
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
+          {arrayOfNumbers.map((number, i) => 
+            <span key={i}>{number}</span>
+          )}
         </div>
       </div>
     );
-  }
 }
 
 export default Numbers;

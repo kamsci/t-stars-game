@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import _ from 'lodash';
+
 import './App.css';
+
+import logo from './logo.svg';
 import Game from './Game';
 
 //////////////////////////////////////////////
