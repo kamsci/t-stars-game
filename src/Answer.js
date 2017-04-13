@@ -7,7 +7,8 @@ const Answer = (props) => {
   return (
     <div className="col-sm-5">
     {props.selectedNumbers.map((number, i) =>
-      <span key={i}>{number}</span>
+      <span key={i}
+            onClick={() => props.onClickNumber(number)}>{number}</span>
     )}
     </div>
   );

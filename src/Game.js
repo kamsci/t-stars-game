@@ -12,10 +12,18 @@ class Game extends Component {
     selectedNumbers: []
   };
 
-  selectNumber = (input) => {
+  selectNumber = (numberClicked) => {
+    if(this.state.selectedNumbers.indexOf(numberClicked) >= 0) { return; }
+
     this.setState(prevState => ({
-      selectedNumbers: prevState.selectedNumbers.concat(input)
-    }))
+      selectedNumbers: prevState.selectedNumbers.concat(numberClicked)
+    }));
+  };
+
+  unselectNumber = (numberClicked) => {
+    this.setState(prevState => ({
+    selectedNumbers: prevState.selectedNumbers.filter(number => number !== numberClicked)
+    }));
   }
 
   render() {
@@ -24,7 +32,8 @@ class Game extends Component {
         <div className="row">
           <Stars numberOfStars={this.state.numberOfStars} />
           <Button />
-          <Answer selectedNumbers={this.state.selectedNumbers} />
+          <Answer selectedNumbers={this.state.selectedNumbers}
+                  onClickNumber={this.unselectNumber} />
         </div>
         <Numbers onClickNumber={this.selectNumber} />
       </div>
