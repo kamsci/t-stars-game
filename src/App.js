@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Stars from './Stars';
+
+//////////////////////////////////////////////
 
 class App extends Component {
   render() {
@@ -14,6 +17,7 @@ class App extends Component {
           Instructions on how to play game.
         </p>
         <div>
+          <Stars />
         </div>
       </div>
     );
