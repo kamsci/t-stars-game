@@ -7,12 +7,14 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <img src={logo} className="App-logo pull-left" alt="logo" />
+          <h2>Play Nine</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Instructions on how to play game.
         </p>
+        <div>
+        </div>
       </div>
     );
   }
