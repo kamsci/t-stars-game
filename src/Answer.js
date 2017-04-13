@@ -6,9 +6,9 @@ const Answer = (props) => {
   
   return (
     <div className="col-sm-5">
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
+    {props.selectedNumbers.map((number, i) =>
+      <span key={i}>{number}</span>
+    )}
     </div>
   );
 }
