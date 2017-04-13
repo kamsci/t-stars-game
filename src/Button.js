@@ -9,7 +9,8 @@ const Button = (props) => {
   switch(props.answerCorrect) {
     case true:
       button = 
-        <button className="btn btn-success">
+        <button className="btn btn-success"
+                onClick={props.onClickButtonSuccess}>
           <i className="fa fa-check"></i>
         </button>
       break;
@@ -26,9 +27,24 @@ const Button = (props) => {
       break;
   }
 
+  const addRefreshClass = () => {
+    if(props.refreshCount === 0) {
+      let refreshClass = 'btn btn-danger'
+      return refreshClass
+    } else {
+      return 'btn btn-warning'
+    }
+  }
+
   return (
     <div className="col-sm-2">
-      {button}
+      <div>
+        {button}
+      </div>
+      <div>
+        <button className={addRefreshClass()}
+                onClick={props.onClickRefresh}><i className="fa fa-refresh"></i> {props.refreshCount}</button>
+      </div>
     </div>
   );
 }

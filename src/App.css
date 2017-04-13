@@ -35,6 +35,15 @@
   padding: 10px 10px;
 }
 
+/*Button*/
+.btn {
+  margin-bottom: 10px;
+  width: 65px;
+  font-size: 20px;
+}
+.btn-warning {
+  font-size: 20px;
+}
 /*Numbers*/
 .card {
   margin: auto auto;
@@ -48,6 +57,11 @@
   background-color: #eee;
   color: #ddd;
   cursor:  not-allowed;
+}
+.used {
+  background-color: #aaddaa;
+  color: #99bb99;
+  cursor: not-allowed;
 }
 
 /*Numbers & Answers*/

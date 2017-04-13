@@ -9,6 +9,10 @@ const Numbers = (props) => {
       let numberClasses = 'selected disabled';
       return numberClasses;
     }
+    if(props.usedNumbers.indexOf(number) >= 0) {
+      let numberClasses = 'used disabled';
+      return numberClasses;
+    }
   }
 
   return (
