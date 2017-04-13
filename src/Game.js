@@ -7,12 +7,15 @@ import Numbers from './Numbers';
 //////////////////////////////////////////////
 
 class Game extends Component {
+  static randomNumber = () => 1 + Math.floor(Math.random() * 9)
+  static refreshMax = 5;
+
   state = {
-    numberOfStars: 1 + Math.floor(Math.random() * 9),
+    numberOfStars: Game.randomNumber(),
     selectedNumbers: [],
     answerCorrect: null,
     usedNumbers: [],
-    refreshCount: 3
+    refreshCount: Game.refreshMax
   };
 
   selectNumber = (numberClicked) => {
@@ -43,7 +46,7 @@ class Game extends Component {
     this.setState(prevState => ({
       usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
       selectedNumbers: [],
-      numberOfStars: 1 + Math.floor(Math.random() * 9),
+      numberOfStars: Game.randomNumber(),
       answerCorrect: null
     }));
   }
@@ -52,17 +55,17 @@ class Game extends Component {
     if(this.state.refreshCount !== 0) {
       this.setState(prevState => ({
         selectedNumbers: [],
-        numberOfStars: 1 + Math.floor(Math.random() * 9),
+        numberOfStars: Game.randomNumber(),
         answerCorrect: null,
         refreshCount: prevState.refreshCount - 1
       }));
     } else {
       this.setState ({
-        numberOfStars: 1 + Math.floor(Math.random() * 9),
+        numberOfStars: Game.randomNumber(),
         selectedNumbers: [],
         answerCorrect: null,
         usedNumbers: [],
-        refreshCount: 3
+        refreshCount: Game.refreshMax
       });
     }
   }
