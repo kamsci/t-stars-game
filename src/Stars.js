@@ -3,10 +3,11 @@ import React from 'react';
 //////////////////////////
 
 const Stars = (props) => {
-  const numberOfStars = 1 + Math.floor(Math.random()*9);
+  // Moved randomNumberOfStarts up to Game component to avoid reload on every Number click
+
 
   let stars = [];
-  for(let i = 0; i < numberOfStars; i++) {
+  for(let i = 0; i < props.numberOfStars; i++) {
     stars.push(<i key={i} className="fa fa-star"></i>)
   }
   
