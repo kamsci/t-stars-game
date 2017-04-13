@@ -11,7 +11,7 @@ const Stars = (props) => {
   }
   
   return (
-    <div className="col-5">
+    <div className="col-sm-5">
       {stars}
     </div>
   );

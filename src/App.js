@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Stars from './Stars';
+import Game from './Game';
 
 //////////////////////////////////////////////
 
@@ -17,7 +17,7 @@ class App extends Component {
           Instructions on how to play game.
         </p>
         <div>
-          <Stars />
+          <Game />
         </div>
       </div>
     );

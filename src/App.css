@@ -24,9 +24,36 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+/*Game*/
+.container {
+  margin-top: 50px;
+}
 
 /*Stars*/
 .fa-star {
   font-size: 25px;
   padding: 10px 10px;
+}
+
+/*Numbers*/
+.card {
+  margin: auto auto;
+  margin-top: 20px;
+  text-align: center;
+  width: 50%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+/*Numbers & Answers*/
+span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  margin: 10px 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
 }
