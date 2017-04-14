@@ -44,6 +44,10 @@
 .btn-warning {
   font-size: 20px;
 }
+.btn.again {
+  width: auto;
+  font-family: sans-serif;
+}
 /*Numbers*/
 .card {
   margin: auto auto;
@@ -75,4 +79,16 @@ span {
   background-color: #ccc;
   border-radius: 50%;
   cursor: pointer;
+}
+
+/*EndGame*/
+.endGame {
+  text-align: center;
+  font-family: cursive;
+  font-size: 40px;
+  margin-top: 30px;
+}
+.fa-trophy {
+  color: gold;
+  font-size: 60px;
 }

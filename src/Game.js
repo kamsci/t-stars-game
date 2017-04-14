@@ -3,6 +3,7 @@ import Stars from './Stars';
 import Button from './Button';
 import Answer from './Answer';
 import Numbers from './Numbers';
+import EndGame from './EndGame';
 
 //////////////////////////////////////////////
 
@@ -15,7 +16,8 @@ class Game extends Component {
     selectedNumbers: [],
     answerCorrect: null,
     usedNumbers: [],
-    refreshCount: Game.refreshMax
+    refreshCount: Game.refreshMax,
+    win: null
   };
 
   selectNumber = (numberClicked) => {
@@ -52,21 +54,32 @@ class Game extends Component {
   }
 
   refresh = () => {
-    if(this.state.refreshCount !== 0) {
-      this.setState(prevState => ({
-        selectedNumbers: [],
-        numberOfStars: Game.randomNumber(),
-        answerCorrect: null,
-        refreshCount: prevState.refreshCount - 1
-      }));
-    } else {
-      this.setState ({
-        numberOfStars: Game.randomNumber(),
-        selectedNumbers: [],
-        answerCorrect: null,
-        usedNumbers: [],
-        refreshCount: Game.refreshMax
+    if(this.state.refreshCount === 0) {
+      this.setState({
+        win: false
+      })
+      return;
+    }
+    this.setState(prevState => ({
+      selectedNumbers: [],
+      numberOfStars: Game.randomNumber(),
+      answerCorrect: null,
+      refreshCount: prevState.refreshCount - 1
+    }));
+  }
+
+  componentDidUpdate = () => {
+    console.log("usedNumbers", this.state.usedNumbers, "win", this.state.win)
+    if(this.state.win === true || this.state.win === false) { return; }
+    if(this.state.usedNumbers.length === 9) {
+      this.setState({
+        win: true
       });
+    }
+    if(this.state.refreshCount === 0){
+      this.setState({
+        win: false
+      })
     }
   }
 
@@ -76,7 +89,8 @@ class Game extends Component {
       selectedNumbers,
       answerCorrect,
       usedNumbers,
-      refreshCount
+      refreshCount,
+      win
     } = this.state;
 
     return (
@@ -95,9 +109,7 @@ class Game extends Component {
         <Numbers selectedNumbers={selectedNumbers}
                  usedNumbers={usedNumbers}
                  onClickNumber={this.selectNumber} />
-        <div className="lost">
-
-        </div>
+        <EndGame win={win}/>
       </div>
     );
   }

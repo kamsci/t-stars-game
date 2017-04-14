@@ -3,7 +3,6 @@ import React from 'react';
 //////////////////////////
 
 const Button = (props) => {
-  console.log("Answer", props.answerCorrect)
   let button;
 
   switch(props.answerCorrect) {
