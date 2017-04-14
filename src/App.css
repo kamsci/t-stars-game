@@ -4,21 +4,91 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 40px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #8A4F80;
+  height: 100px;
   padding: 20px;
   color: white;
 }
 
 .App-intro {
   font-size: large;
+  margin: 10px 20px;
+  text-align: left;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+/*Game*/
+.container {
+  margin-top: 50px;
+}
+
+/*Stars*/
+.fa-star {
+  font-size: 25px;
+  padding: 10px 10px;
+}
+
+/*Button*/
+.btn {
+  margin-bottom: 10px;
+  width: 65px;
+  font-size: 20px;
+}
+.btn-warning {
+  font-size: 20px;
+}
+
+/*Numbers*/
+.card {
+  margin: auto auto;
+  margin-top: 20px;
+  text-align: center;
+  width: 50%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.selected {
+  background-color: #eee;
+  color: #ddd;
+  cursor:  not-allowed;
+}
+.used {
+  background-color: #aaddaa;
+  color: #99bb99;
+  cursor: not-allowed;
+}
+
+/*Numbers & Answers*/
+span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  margin: 10px 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/*EndGame*/
+.endGame {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 30px;
+}
+.fa-trophy {
+  color: gold;
+  font-size: 60px;
+}
+.btn.again {
+  width: auto;
+  font-family: sans-serif;
 }
