@@ -22,7 +22,9 @@ class Game extends Component {
 
   selectNumber = (numberClicked) => {
     if(this.state.selectedNumbers.indexOf(numberClicked) >= 0
-      || this.state.usedNumbers.indexOf(numberClicked) >= 0) 
+      || this.state.usedNumbers.indexOf(numberClicked) >= 0
+      || this.state.win === true 
+      || this.state.win === false) 
       { return; }
 
     this.setState(prevState => ({
@@ -68,6 +70,17 @@ class Game extends Component {
     }));
   }
 
+  playAgain = () => {
+    this.setState({
+      numberOfStars: Game.randomNumber(),
+      selectedNumbers: [],
+      answerCorrect: null,
+      usedNumbers: [],
+      refreshCount: Game.refreshMax,
+      win: null
+    })
+  }
+
   componentDidUpdate = () => {
     if(this.state.win === true || this.state.win === false) { return; }
     if(this.state.usedNumbers.length === 9) {
@@ -75,12 +88,16 @@ class Game extends Component {
         win: true
       });
     }
+  }
+  componentWillUpdate(nextProps, nextState) {
+    if(this.state.win === true || this.state.win === false) { return; }
     if(this.state.refreshCount === 0){
       this.setState({
         win: false
       })
     }
   }
+
 
   render() {
     const {
@@ -101,14 +118,16 @@ class Game extends Component {
                   onClickButtonSuccess={this.acceptAnswer}
                   answerCorrect={answerCorrect}
                   refreshCount={refreshCount}
-                  onClickRefresh={this.refresh} />
+                  onClickRefresh={this.refresh}
+                  win={win} />
           <Answer selectedNumbers={selectedNumbers}
                   onClickNumber={this.unselectNumber} />
         </div>
         <Numbers selectedNumbers={selectedNumbers}
                  usedNumbers={usedNumbers}
                  onClickNumber={this.selectNumber} />
-        <EndGame win={win}/>
+        <EndGame win={win}
+                 clickPlayAgain={this.playAgain} />
       </div>
     );
   }

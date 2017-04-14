@@ -5,14 +5,14 @@ import React from 'react';
 const Numbers = (props) => {  
   // Create CSS class for when the number is selected
   const addNumberClass = (number) => {
+    let numberClasses
     if(props.selectedNumbers.indexOf(number) >= 0) {
-      let numberClasses = 'selected disabled';
-      return numberClasses;
+      numberClasses = 'selected disabled';
     }
-    if(props.usedNumbers.indexOf(number) >= 0) {
-      let numberClasses = 'used disabled';
-      return numberClasses;
+    else if(props.usedNumbers.indexOf(number) >= 0) {
+      numberClasses = 'used disabled';
     }
+    return numberClasses;
   }
 
   return (

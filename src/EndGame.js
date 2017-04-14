@@ -3,22 +3,29 @@ import React from 'react';
 //////////////////////////
 
 const EndGame = (props) => {
-  let messege;
+  const playAgainButton = () => {
+    return (
+      <button className="btn btn-default again"
+            onClick={props.clickPlayAgain}>Play Again</button>
+    )
+  }
+
+  let message;
 
   switch(props.win) {
     case true: 
-      messege =
+      message =
         <div>
           <i className="fa fa-trophy"></i>
           <p>You win!</p>
-          <button className="btn btn-default again">Play Again</button>
+          {playAgainButton()}
         </div>
       break;
     case false:
-      messege =
+      message =
         <div>
           <p>Better luck next time.</p>
-          <button className="btn btn-default again">Play Again</button>
+          {playAgainButton()}
         </div>
       break;
     default:
@@ -27,7 +34,7 @@ const EndGame = (props) => {
 
   return (
     <div className="endGame">
-      {messege}
+      {message}
     </div>
   );
 }

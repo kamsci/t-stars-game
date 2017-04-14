@@ -27,12 +27,14 @@ const Button = (props) => {
   }
 
   const addRefreshClass = () => {
+    let refreshClass;
+
     if(props.refreshCount === 0) {
-      let refreshClass = 'btn btn-danger'
-      return refreshClass
+      refreshClass = 'btn btn-danger'
     } else {
-      return 'btn btn-warning'
+      refreshClass = 'btn btn-warning'
     }
+    return refreshClass
   }
 
   return (
@@ -42,7 +44,8 @@ const Button = (props) => {
       </div>
       <div>
         <button className={addRefreshClass()}
-                onClick={props.onClickRefresh}><i className="fa fa-refresh"></i> {props.refreshCount}</button>
+                onClick={props.onClickRefresh}
+                disabled={props.win === true || props.win === false}><i className="fa fa-refresh"></i> {props.refreshCount}</button>
       </div>
     </div>
   );
