@@ -16,9 +16,10 @@ class App extends Component {
           <img src={logo} className="App-logo pull-left" alt="logo" />
           <h2>Play Nine</h2>
         </div>
-        <p className="App-intro">
-          Instructions on how to play game.
-        </p>
+        <div className="App-intro">
+          <p><strong>Instructions: </strong>Count starts using the number options in the box. The goal is to use all numbers, but each numbers can only be used once. You have 5 chances for a redraw.</p>
+          <p>Think you have the answer? Click the blue = to check your answer, then click the green <i className="fa fa-check"></i> to submit your final answer!</p>
+        </div>
         <div>
           <Game />
         </div>

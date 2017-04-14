@@ -69,7 +69,6 @@ class Game extends Component {
   }
 
   componentDidUpdate = () => {
-    console.log("usedNumbers", this.state.usedNumbers, "win", this.state.win)
     if(this.state.win === true || this.state.win === false) { return; }
     if(this.state.usedNumbers.length === 9) {
       this.setState({
